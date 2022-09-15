@@ -1,0 +1,30 @@
+<h2>String interpolation :</h2>
+<small>It is denoted by &lcub; &lcub; js/ts variable &rcub; &rcub;</small><br>
+{{ myFirstString }} <br>
+{{ myFirstFunction() }}
+<hr>
+<h2>Data binding :</h2>
+<small>Property binding </small><br/>
+<input [type]="type"><br />
+<small>Event binding </small><br />
+<button (click)="changeInputType()">Click</button>
+<button (click)="eventHandle($event)">Check the event in console</button>
+<hr>
+<h2>Directives</h2>
+<div *ngIf="showDiv">
+  IF condition
+</div>
+<button (click)="toggleDiv()">Toggle div</button><br><br>
+<h4>FOR</h4>
+<ul>
+  <li *ngFor="let product of products">
+{{ product }}
+  </li>
+</ul>
+
+<div [ngStyle]="{color:textColor=='red'?'red':'green'}">
+  This is ngStyle
+</div>
+<div [style]="{color:'blue'}">
+  This is style
+</div>
