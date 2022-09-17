@@ -1,6 +1,8 @@
 <div class="container-fluid">
+  <h5>Register <b>FormsModule</b> in <b>"app.module.ts"</b> </h5>
   <div class="row">
     <div class="col-7">
+      <h2>Product Entry</h2>
         <form>
             <div class="form-group">
               <label for="product">Product name</label>
@@ -20,8 +22,8 @@
 
             <span class="float-start">{{ i+1 }}. {{ products.ProductName }}</span>
             <span class="float-end">
-              <span *ngIf="products.ProductPrice<500" >(Discount)</span>
-              {{ products.ProductPrice }}</span>
+              <span *ngIf="myDiscount(products.ProductPrice)">(Discount - {{ discountPercentage }} %) </span>
+              &#8377; {{ products.ProductPrice }}</span>
           </li>
         </ul>
     </div>

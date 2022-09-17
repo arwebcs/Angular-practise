@@ -9,6 +9,7 @@ export class TwoWayBindingComponent implements OnInit {
   pname: string = '';
   price: number = 0;
   product: { ProductName: string; ProductPrice: string | number }[] = [];
+  discountPercentage: number = 0.0;
   constructor() {}
 
   resetForm() {
@@ -21,6 +22,13 @@ export class TwoWayBindingComponent implements OnInit {
     this.product.push(items);
     this.resetForm();
   }
-
+  myDiscount(dprice: any | number) {
+    if (dprice < 500) {
+      this.discountPercentage = ((500 - dprice) / 500) * 100;
+      return true;
+    } else {
+      return false;
+    }
+  }
   ngOnInit(): void {}
 }
