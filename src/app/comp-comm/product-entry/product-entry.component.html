@@ -1,0 +1,14 @@
+<h2>Product Entry</h2>
+<form>
+  <div class="form-group">
+    <label for="product">Product name</label>
+    <input type="text" name="pname" [(ngModel)]="pname" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label for="product">Product price</label>
+    <input type="text" name="price" [(ngModel)]="price" class="form-control" />
+  </div><br />
+  <div class="form-group">
+    <button type="button" class="btn btn-primary" (click)="addProduct()">Add product</button>
+  </div>
+</form> <br>

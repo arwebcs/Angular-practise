@@ -1,0 +1,10 @@
+<h5>Product list (If the price is less than 500 than it is discounted)</h5>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let product of products; let i=index">
+
+    <span class="float-start">{{ i+1 }}. {{ product.ProductName }}</span>
+    <span class="float-end">
+      <!-- <span *ngIf="myDiscount(products.ProductPrice)">(Discount - {{ discountPercentage }} %) </span> -->
+      &#8377; {{ product.ProductPrice }}</span>
+  </li>
+</ul>

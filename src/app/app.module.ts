@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { BindingDirectives } from './binding-directive/bd.component';
 import { Greetings } from './directives/myDir.directive';
 import { TwoWayBindingComponent } from './two-way-binding/two-way-binding.component';
+import { CompCommComponent } from './comp-comm/comp-comm.component';
+import { ProductEntryComponent } from './comp-comm/product-entry/product-entry.component';
+import { ProductListComponent } from './comp-comm/product-list/product-list.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +16,9 @@ import { TwoWayBindingComponent } from './two-way-binding/two-way-binding.compon
     BindingDirectives,
     Greetings,
     TwoWayBindingComponent,
+    CompCommComponent,
+    ProductEntryComponent,
+    ProductListComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],
