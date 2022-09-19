@@ -9,6 +9,9 @@ import { TwoWayBindingComponent } from './two-way-binding/two-way-binding.compon
 import { CompCommComponent } from './comp-comm/comp-comm.component';
 import { ProductEntryComponent } from './comp-comm/product-entry/product-entry.component';
 import { ProductListComponent } from './comp-comm/product-list/product-list.component';
+import { GoodsComponent } from './goods/goods.component';
+import { GoodsEntryComponent } from './goods/goods-entry/goods-entry.component';
+import { GoodsShowComponent } from './goods/goods-show/goods-show.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import { ProductListComponent } from './comp-comm/product-list/product-list.comp
     CompCommComponent,
     ProductEntryComponent,
     ProductListComponent,
+    GoodsComponent,
+    GoodsEntryComponent,
+    GoodsShowComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],
