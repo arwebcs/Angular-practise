@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SrvGoods } from 'src/app/services/goods.service';
 
 @Component({
   selector: 'app-goods-entry',
@@ -6,11 +7,9 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./goods-entry.component.css'],
 })
 export class GoodsEntryComponent implements OnInit {
-  constructor() {}
-
-  @Output() gname = new EventEmitter<string>();
+  constructor(private goodsService: SrvGoods) {}
 
   ngOnInit(): void {
-    this.gname.emit('Hi goods');
+    this.goodsService.addGoods('Test goods');
   }
 }

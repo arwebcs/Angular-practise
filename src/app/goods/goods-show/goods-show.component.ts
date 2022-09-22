@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { SrvGoods } from 'src/app/services/goods.service';
 
 @Component({
   selector: 'app-goods-show',
@@ -6,8 +7,11 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./goods-show.component.css'],
 })
 export class GoodsShowComponent implements OnInit {
-  @Input() goodsNameSpecial: string = '';
-  constructor() {}
+  // @Input() goodsNameSpecial: string = '';
+  goodsNameSpecial: string = '';
+  constructor(private goodsService: SrvGoods) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.goodsNameSpecial = this.goodsService.getGoods();
+  }
 }
