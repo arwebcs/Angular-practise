@@ -1,0 +1,7 @@
+<h1>Product Listing</h1>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let p of products;let i = index">
+    <div class="float-start">{{ i+1 }}. {{ p.ProductName }}</div>
+    <div class="float-end">${{ p.ProductPrice }}</div>
+  </li>
+</ul>
