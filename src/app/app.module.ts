@@ -10,6 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ProductEntryComponent } from './products/product-entry/product-entry.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
+import { EmployeeComponent } from './employee/employee.component';
 
 const route: Routes = [
   {
@@ -24,6 +25,14 @@ const route: Routes = [
     path: 'product',
     component: ProductsComponent,
   },
+  {
+    path: 'employee',
+    component: EmployeeComponent,
+  },
+  {
+    path: 'employee/:employeeid',
+    component: EmployeeComponent,
+  },
 ];
 
 @NgModule({
@@ -35,6 +44,7 @@ const route: Routes = [
     ProductsComponent,
     ProductEntryComponent,
     ProductListComponent,
+    EmployeeComponent,
   ],
   imports: [BrowserModule, FormsModule, RouterModule.forRoot(route)],
   providers: [],
