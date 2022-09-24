@@ -28,6 +28,9 @@ export class EmployeeComponent implements OnInit, OnDestroy {
     this.router.navigate(['employee/1']);
   }
   nextID() {
+    if (isNaN(this.employeeID)) {
+      this.employeeID = 0;
+    }
     let urlId = +this.employeeID + 1;
     this.router.navigate(['employee', urlId]);
   }
