@@ -1,1 +1,4 @@
 <p>home works!</p>
+<button (click)="goPage('product')">Go to Product</button><br><br>
+<a routerLink="/" [queryParams]="{name:'raj',age:12}">Query Params</a><br>
+Name : {{ name }}, Age: {{ age }}

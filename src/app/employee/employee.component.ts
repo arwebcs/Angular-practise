@@ -10,17 +10,13 @@ import { Subscription } from 'rxjs';
 export class EmployeeComponent implements OnInit, OnDestroy {
   employeeID: number = 0;
   urlSubscribe!: Subscription;
-  constructor(
-    private router: Router,
-    private activatedRouteSS: ActivatedRoute,
-    private activatedRouteObs: ActivatedRoute
-  ) {}
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
     //Using snapshot
-    //this.employeeID = this.activatedRouteSS.snapshot.params['employeeid'];
+    //this.employeeID = this.activatedRoute.snapshot.params['employeeid'];
     //Using observable
-    this.urlSubscribe = this.activatedRouteObs.params.subscribe((res) => {
+    this.urlSubscribe = this.activatedRoute.params.subscribe((res) => {
       this.employeeID = res['employeeid'];
     });
   }
