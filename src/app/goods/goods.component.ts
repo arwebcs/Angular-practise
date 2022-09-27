@@ -8,8 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class GoodsComponent implements OnInit {
   goodName: string = '';
   constructor() {}
-  getName(data: any) {
-    this.goodName = data;
-  }
+
   ngOnInit(): void {}
 }
