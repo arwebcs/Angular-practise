@@ -25,17 +25,17 @@ export class CategoryDescriptionComponent
     private activateRoute: ActivatedRoute
   ) {}
 
-  ngDoCheck(): void {
+  ngDoCheck(): void {}
+  ngOnInit(): void {
     this.urlSubscribe = this.activateRoute.params.subscribe((res) => {
       this.categoryID = res['categoryid'];
+      this.categoryDesc = this.categoryService.getCategoryDesc(this.categoryID);
+      for (let desc of this.categoryDesc) {
+        this.categoryImage = desc.categoryImg;
+        this.categoryDescr = desc.categorydesc;
+      }
     });
-    this.categoryDesc = this.categoryService.getCategoryDesc(this.categoryID);
-    for (let desc of this.categoryDesc) {
-      this.categoryImage = desc.categoryImg;
-      this.categoryDescr = desc.categorydesc;
-    }
   }
-  ngOnInit(): void {}
   ngOnDestroy(): void {
     this.urlSubscribe.unsubscribe();
   }
