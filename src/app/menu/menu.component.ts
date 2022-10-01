@@ -18,7 +18,7 @@ export class MenuComponent implements OnInit {
   logout() {
     this.loggedIn = this.loginService.makeLogout();
     this.router.navigate(['']);
-    console.log(this.loggedIn);
+    alert("Logged out");
     return this.loggedIn;
   }
 

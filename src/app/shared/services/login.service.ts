@@ -16,7 +16,7 @@ export class LoginService {
     return this.login;
   }
   checkLoggedin() {
-    const promise = new Promise((resolve) => {
+    const promise = new Promise((resolve, reject) => {
       resolve(this.login);
     });
     return promise;
@@ -26,6 +26,7 @@ export class LoginService {
       if (res == true) {
         return true;
       } else {
+        alert("Please login first")
         return false;
       }
     });
