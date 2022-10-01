@@ -4,19 +4,30 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class LoginService {
-  constructor() {}
-  a: any = '';
-  isLoggedin() {
-    const promise = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        this.a = 'string1';
-      }, 10000);
-      if (this.a == 'string1') {
-        resolve(true);
-      } else {
-        resolve(false);
-      }
+  constructor() { }
+  login: boolean = false;
+
+  makeLogin() {
+    this.login = true;
+    return this.login;
+  }
+  makeLogout() {
+    this.login = false;
+    return this.login;
+  }
+  checkLoggedin() {
+    const promise = new Promise((resolve) => {
+      resolve(this.login);
     });
     return promise;
+  }
+  isLoggedIn() {
+    return this.checkLoggedin().then((res: any) => {
+      if (res == true) {
+        return true;
+      } else {
+        return false;
+      }
+    });
   }
 }

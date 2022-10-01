@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -22,7 +23,7 @@ const route: Routes = [
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, MenuComponent, TdFormsComponent],
-  imports: [BrowserModule, RouterModule.forRoot(route)],
+  imports: [BrowserModule, FormsModule, RouterModule.forRoot(route)],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -12,19 +12,9 @@ import { LoginService } from '../services/login.service';
   providedIn: 'root',
 })
 export class LoginGuard implements CanActivate {
-  constructor(private loginService: LoginService) {}
-  canActivate():
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree>
-    | boolean
-    | UrlTree {
-    return this.loginService.isLoggedin().then((res: any) => {
-      if (res == true) {
-        return true;
-      } else {
-        alert('please login');
-        return false;
-      }
-    });
+  constructor(private loginService: LoginService) { }
+  canActivate() {
+
+    return this.loginService.isLoggedIn();
   }
 }

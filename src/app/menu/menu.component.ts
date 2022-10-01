@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from '../shared/services/login.service';
 
 @Component({
@@ -7,14 +8,21 @@ import { LoginService } from '../shared/services/login.service';
   styleUrls: ['./menu.component.css'],
 })
 export class MenuComponent implements OnInit {
-  constructor(private loginService: LoginService) {}
-
-  ngOnInit(): void {}
-
+  loggedIn: boolean = false;
+  constructor(private loginService: LoginService, private router: Router) { }
   login() {
-    this.loginService.isLoggedin().then((res) => {
-      console.log(res);
-    });
-    return this.loginService.isLoggedin();
+    this.loggedIn = this.loginService.makeLogin();
+    alert("Logged in");
+    return this.loggedIn;
+  }
+  logout() {
+    this.loggedIn = this.loginService.makeLogout();
+    this.router.navigate(['']);
+    console.log(this.loggedIn);
+    return this.loggedIn;
+  }
+
+  ngOnInit(): void {
+    this.loggedIn;
   }
 }
