@@ -12,7 +12,7 @@ import { TdFormsComponent } from './td-forms/td-forms.component';
 const route: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: HomeComponent
   },
   {
     path: 'tdforms',
@@ -27,4 +27,4 @@ const route: Routes = [
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
