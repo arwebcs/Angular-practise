@@ -13,6 +13,8 @@ export class TdFormsComponent implements OnInit {
   nameErr: string = ''
   emailErr: string = ''
   ageErr: string = ''
+  classErr: string = ''
+  secErr: string = ''
 
   ngOnInit(): void {}
   onPopulate() {
@@ -20,6 +22,10 @@ export class TdFormsComponent implements OnInit {
       nm: 'Arghya',
       ag: 132,
       em: 'a@gmail.com',
+      academic: {
+        class: 'IX',
+        sec: 'A',
+      },
     })
   }
   onReset() {
@@ -58,6 +64,23 @@ export class TdFormsComponent implements OnInit {
   //     }
   //   } else {
   //     this.ageErr = ''
+  //   }
+
+  // if (frm.controls['academic'].controls['class'].errors) {
+  //     if (frm.controls['academic'].controls['class'].errors['required']) {
+  //       this.classErr = 'Please enter class'
+  //     }
+  //   } else {
+  //     this.classErr = ''
+  //   }
+  // }
+
+  // if (frm.controls['academic'].controls['sec'].errors) {
+  //     if (frm.controls['academic'].controls['sec'].errors['required']) {
+  //       this.secErr = 'Please enter section'
+  //     }
+  //   } else {
+  //     this.secErr = ''
   //   }
   // }
 }
