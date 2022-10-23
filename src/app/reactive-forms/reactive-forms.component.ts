@@ -50,20 +50,20 @@ export class ReactiveFormsComponent implements OnInit {
   }
   onSubmit() {
     console.log(this.myForm)
-    if (this.myForm.get('sname').errors) {
-      if (this.myForm.get('sname').errors['required']) {
+    if (this.myForm.controls['sname'].errors) {
+      if (this.myForm.controls['sname'].errors['required']) {
         this.nameErr = 'Please enter name'
       } else {
         this.nameErr =
           'Please enter at least ' +
-          this.myForm.get('sname').errors['minlength'].requiredLength +
+          this.myForm.controls['sname'].errors['minlength'].requiredLength +
           ' characters'
       }
     } else {
       this.nameErr = ''
     }
-    if (this.myForm.get('email').errors) {
-      if (this.myForm.get('email').errors['required']) {
+    if (this.myForm.controls['email'].errors) {
+      if (this.myForm.controls['email'].errors['required']) {
         this.emailErr = 'Please enter email'
       } else {
         this.emailErr = 'Invalid email'
@@ -71,20 +71,20 @@ export class ReactiveFormsComponent implements OnInit {
     } else {
       this.emailErr = ''
     }
-    if (this.myForm.get('age').errors) {
-      if (this.myForm.get('age').errors['required']) {
+    if (this.myForm.controls['age'].errors) {
+      if (this.myForm.controls['age'].errors['required']) {
         this.ageErr = 'Please enter age'
       } else {
         this.ageErr =
           'Age cannot exceed ' +
-          this.myForm.get('age').errors['max'].max +
+          this.myForm.controls['age'].errors['max'].max +
           ' years'
       }
     } else {
       this.ageErr = ''
     }
-    if (this.myForm.get('gender').errors) {
-      if (this.myForm.get('gender').errors['required']) {
+    if (this.myForm.controls['gender'].errors) {
+      if (this.myForm.controls['gender'].errors['required']) {
         this.genderErr = 'Please select gender'
       }
     } else {
