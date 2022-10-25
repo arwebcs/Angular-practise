@@ -1,75 +1,60 @@
 <div class="card w-50 p-4 m-4 shadow mx-auto">
-  <form [formGroup]="myForm">
-    <div class="form-group mb-4">
-      <label>Name:</label>
-      <div
-        class="p-1 mb-1"
-        [ngClass]="nameErr == '' ? '' : 'alert alert-danger'"
-      >
-        {{ nameErr }}
-      </div>
-      <input type="text" class="form-control" formControlName="sname" />
-    </div>
-    <div class="form-group mb-4">
-      <label>Email:</label>
-      <div
-        class="p-1 mb-1"
-        [ngClass]="emailErr == '' ? '' : 'alert alert-danger'"
-      >
-        {{ emailErr }}
-      </div>
-      <input type="email" class="form-control" formControlName="email" />
-    </div>
-    <div class="form-group mb-4">
-      <label>Age:</label>
-      <div
-        class="p-1 mb-1"
-        [ngClass]="ageErr == '' ? '' : 'alert alert-danger'"
-      >
-        {{ ageErr }}
-      </div>
-      <input type="number" class="form-control" formControlName="age" />
-    </div>
-
-    <div class="form-group mb-4">
-      <label>Gender:</label>
-      <div
-        class="p-1 mb-1"
-        [ngClass]="genderErr == '' ? '' : 'alert alert-danger'"
-      >
-        {{ genderErr }}
-      </div>
-      <input type="radio" formControlName="gender" value="Male" />
-      Male
-      <input type="radio" formControlName="gender" value="Female" />
-      Female
-    </div>
-
-    <div formGroupName="academic">
-      <div class="form-group mb-4">
-        <label>Class:</label>
-        <div
-          class="p-1 mb-1"
-          [ngClass]="classErr == '' ? '' : 'alert alert-danger'"
-        >
-          {{ classErr }}
+    <form [formGroup]="myForm">
+        <div class="form-group mb-4">
+            <label>Name:</label>
+            <div class="p-1 mb-1" [ngClass]="nameErr == '' ? '' : 'alert alert-danger'">
+                {{ nameErr }}
+            </div>
+            <input type="text" class="form-control" formControlName="sname" />
         </div>
-        <input type="text" class="form-control" formControlName="class" />
-      </div>
-      <div class="form-group mb-4">
-        <label>Section:</label>
-        <div
-          class="p-1 mb-1"
-          [ngClass]="secErr == '' ? '' : 'alert alert-danger'"
-        >
-          {{ secErr }}
+        <div class="form-group mb-4">
+            <label>Email:</label>
+            <div class="p-1 mb-1" [ngClass]="emailErr == '' ? '' : 'alert alert-danger'">
+                {{ emailErr }}
+            </div>
+            <input type="email" class="form-control" formControlName="email" />
         </div>
-        <input type="text" class="form-control" formControlName="sec" />
-      </div>
-    </div>
+        <div class="form-group mb-4">
+            <label>Age:</label>
+            <div class="p-1 mb-1" [ngClass]="ageErr == '' ? '' : 'alert alert-danger'">
+                {{ ageErr }}
+            </div>
+            <input type="number" class="form-control" formControlName="age" />
+        </div>
 
-    <button class="btn btn-primary" (click)="onSubmit()">Submit</button>
-    <button class="btn btn-info" (click)="onPopulate()">Populate</button>
-    <button class="btn btn-danger" (click)="onReset()">Reset</button>
-  </form>
+        <div class="form-group mb-4">
+            <label>Gender:</label>
+            <div class="p-1 mb-1" [ngClass]="genderErr == '' ? '' : 'alert alert-danger'">
+                {{ genderErr }}
+            </div>
+            <input type="radio" formControlName="gender" value="Male" /> Male
+            <input type="radio" formControlName="gender" value="Female" /> Female
+        </div>
+        <div class="form-group mb-4" formArrayName="likes">
+            <label>Hobbies:</label>
+            <div *ngFor="let hobby of hobbies;let i = index;">
+                <input type="text" class="form-control" [formControlName]="i">
+            </div>
+        </div>
+        <div formGroupName="academic">
+            <div class="form-group mb-4">
+                <label>Class:</label>
+                <div class="p-1 mb-1" [ngClass]="classErr == '' ? '' : 'alert alert-danger'">
+                    {{ classErr }}
+                </div>
+                <input type="text" class="form-control" formControlName="class" />
+            </div>
+            <div class="form-group mb-4">
+                <label>Section:</label>
+                <div class="p-1 mb-1" [ngClass]="secErr == '' ? '' : 'alert alert-danger'">
+                    {{ secErr }}
+                </div>
+                <input type="text" class="form-control" formControlName="sec" />
+            </div>
+        </div>
+
+        <button class="btn btn-primary" (click)="onSubmit()">Submit</button>
+        <button class="btn btn-info" (click)="onPopulate()">Populate</button>
+        <button class="btn btn-danger" (click)="onReset()">Reset</button>
+    </form>
 </div>
