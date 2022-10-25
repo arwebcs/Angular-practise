@@ -7,7 +7,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'
   styleUrls: ['./reactive-forms.component.css'],
 })
 export class ReactiveFormsComponent implements OnInit {
-  constructor() {}
+  constructor() { }
 
   myForm: FormGroup | any
   academic: FormGroup | any
@@ -37,7 +37,7 @@ export class ReactiveFormsComponent implements OnInit {
     this.myForm = new FormGroup({
       sname: new FormControl('Soumyanjan'),
       email: new FormControl('arghya992@gmail.com'),
-      age: new FormControl(76),
+      age: new FormControl(30),
       gender: new FormControl('Male'),
       academic: new FormGroup({
         class: new FormControl('Engg'),
