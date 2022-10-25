@@ -8,7 +8,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'
 })
 export class ReactiveFormsComponent implements OnInit {
   constructor() { }
-
   myForm: FormGroup | any
   academic: FormGroup | any
   nameErr: string = ''
@@ -20,10 +19,7 @@ export class ReactiveFormsComponent implements OnInit {
 
   ngOnInit(): void {
     this.myForm = new FormGroup({
-      sname: new FormControl('', [
-        Validators.required,
-        Validators.minLength(3),
-      ]),
+      sname: new FormControl('', [Validators.required, Validators.minLength(3), this.nameValidate.bind(this)]),
       email: new FormControl('', [Validators.email, Validators.required]),
       age: new FormControl('', [Validators.required, Validators.max(100)]),
       gender: new FormControl('', [Validators.required]),
@@ -45,6 +41,17 @@ export class ReactiveFormsComponent implements OnInit {
       }),
     })
   }
+  nameValidate(control: FormControl): { [key: string]: boolean } | null {
+    if (control.value === "Raj") {
+      return {
+        nameforbidden: true,
+      };
+    } else {
+      return null;
+    }
+  }
+
+
   onReset() {
     this.myForm.reset()
   }
@@ -56,7 +63,7 @@ export class ReactiveFormsComponent implements OnInit {
       } else {
         this.nameErr =
           'Please enter at least ' +
-          this.myForm.controls['sname'].errors['minlength'].requiredLength +
+          this.myForm.controls['sname']?.errors['minlength']?.requiredLength +
           ' characters'
       }
     } else {
@@ -77,7 +84,7 @@ export class ReactiveFormsComponent implements OnInit {
       } else {
         this.ageErr =
           'Age cannot exceed ' +
-          this.myForm.controls['age'].errors['max'].max +
+          this.myForm.controls['age']?.errors['max']?.max +
           ' years'
       }
     } else {
