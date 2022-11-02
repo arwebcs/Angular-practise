@@ -12,6 +12,9 @@ import { ProductListComponent } from './comp-comm/product-list/product-list.comp
 import { GoodsComponent } from './goods/goods.component';
 import { GoodsEntryComponent } from './goods/goods-entry/goods-entry.component';
 import { GoodsShowComponent } from './goods/goods-show/goods-show.component';
+import { PipesComponent } from './pipes/pipes.component';
+import { Customise } from './pipes/customise.pipe';
+import { Filtering } from './pipes/filtering.pipe';
 
 @NgModule({
   declarations: [
@@ -25,9 +28,12 @@ import { GoodsShowComponent } from './goods/goods-show/goods-show.component';
     GoodsComponent,
     GoodsEntryComponent,
     GoodsShowComponent,
+    PipesComponent,
+    Customise,
+    Filtering
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
