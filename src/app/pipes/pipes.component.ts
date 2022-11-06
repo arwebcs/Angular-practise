@@ -18,6 +18,10 @@ export class PipesComponent implements OnInit {
   currencyEx = 111;
   percentEx = 0.689156;
 
+  status_on = new Promise((resolve, reject) => {
+    setTimeout(() => { return "active" }, 2000);
+  });
+
   filterText: string = "";
   users = [
     { name: 'raj', age: 12 },

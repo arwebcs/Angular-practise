@@ -51,4 +51,8 @@
         <li class="list-group-item" *ngFor="let u of users |filter:filterText ">{{ u.name }}</li>
     </ul>
     <hr>
+
+    <h3>Async pipes</h3>
+    {{ status_on | async }}
+
 </div>
