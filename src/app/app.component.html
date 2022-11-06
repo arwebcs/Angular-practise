@@ -1,17 +1,47 @@
-<h1>FETCH COUNTRIES</h1>
-<select (change)="getCountries($event)">
-  <option value="">SELECT COUNTRIES</option>
-  <option value="{{ country['cca2'] }}" *ngFor="let country of countries">
-    {{ country['name']['common'] }}
-  </option>
-</select>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6">
+            <h1>FETCH COUNTRIES</h1>
+            <select (change)="getCountries($event)" class="form-control">
+                <option value="">SELECT COUNTRIES</option>
+                <option value="{{ country['cca2'] }}" *ngFor="let country of countries">
+                    {{ country['name']['common'] }}
+                </option>
+            </select>
 
-<div class="card" style="width: 18rem; margin-top: 20px; margin-left: 10px;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-        </p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+            <div class="card" style="width: 18rem; margin-top: 20px; margin-left: 10px;" *ngIf="isCountries">
+                <img src="{{flagURL}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ countryName }}</h5>
+                    <p class="card-text">
+                        <b>Capital : </b>{{ capital }} <br /><br />
+                        <b>Population : </b>{{ population }} <br /><br />
+                        <b>Area : </b>{{ area }}<br /><br />
+                        <b>Timezones : </b> {{ timezones }}<br /><br />
+                        <b>Languages : </b> {{ languages }}
+                    </p>
+                    <button class="btn btn-primary" value="{{cca2}}" (click)="getBorderCountries($event)">
+                        Get border countries</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div *ngIf="isBorderCountries">
+                <h1>BORDER COUNTRIES</h1>
+                <div class="card" style="width: 18rem; margin-top: 20px; margin-left: 10px;" *ngFor="let borderCountry of borderCountries">
+                    <div class="card-body">
+                        <img src="{{borderCountry.flagURL}}" class="card-img-top" alt="..."><br /><br />
+                        <h5 class="card-title">{{ borderCountry.countryName }}</h5>
+                        <p class="card-text">
+                            <b>Capital : </b> {{ borderCountry.capital }}<br /><br />
+                            <b>Population : </b> {{ borderCountry.population }}<br /><br />
+                            <b>Timezones: </b> {{ borderCountry.timezones }}<br /><br />
+                            <b>Area : </b> {{ borderCountry.area }}<br /><br />
+                            <b>Languages : </b> {{ borderCountry.languages }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
