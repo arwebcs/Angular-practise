@@ -19,7 +19,7 @@ export class PipesComponent implements OnInit {
   percentEx = 0.689156;
 
   status_on = new Promise((resolve, reject) => {
-    setTimeout(() => { return "active" }, 2000);
+    setTimeout(() => { return resolve("active"); }, 2000);
   });
 
   filterText: string = "";
