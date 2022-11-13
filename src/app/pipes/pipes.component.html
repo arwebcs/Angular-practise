@@ -1,0 +1,66 @@
+<app-top></app-top>
+<app-sidebar></app-sidebar>
+<div class="main-container">
+    <div class="xs-pd-20-10 pd-ltr-20">
+        <div class="title pb-20">
+            <h2 class="h3 mb-0">Pipes</h2>
+        </div>
+
+        <div class="row pb-10">
+            <div class="col-lg-6">
+                <div class="card-box pl-20 pt-20 pb-20">
+                    <h3>Normal pipes</h3>
+                    <p>
+                        {{ pipeName | lowercase }}
+                    </p>
+                    <p>
+                        {{ pipeName | uppercase }}
+                    </p>
+                    <p>
+                        {{ dateExample | date }}
+                    </p>
+                    <p>
+                        {{ jsonEx | json }}
+                    </p>
+                    <p>
+                        {{ currencyEx | currency }}
+                    </p>
+                    <p>
+                        {{ percentEx | percent }}
+                    </p>
+
+                    <h3>Parameterized pipes</h3>
+                    <p>
+                        {{ dateExample | date : 'MMM-dd-yyyy'}}
+                    </p>
+                    <p>
+                        {{ currencyEx | currency : 'USD'}}
+                    </p>
+                    <p>
+                        {{ percentEx | percent : '2.1-4' }}
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card-box pl-20 pt-20 pb-20">
+                    <h3>Chaining pipes</h3>
+                    <p>
+                        {{ dateExample | date : 'MMM-dd-yyyy' | uppercase}}
+                    </p>
+
+                    <h3>Customized pipes</h3>
+                    <p>
+                        {{ pipeName | uppercase | shortText:5 }}
+                    </p>
+
+                    <h3>Async pipes</h3>
+                    <p>
+                        {{ status_on | async }}
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <app-bottom></app-bottom>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+<app-top></app-top>
+<app-sidebar></app-sidebar>
+<div class="main-container">
+    <div class="xs-pd-20-10 pd-ltr-20">
+        <div class="title pb-20">
+            <h2 class="h3 mb-0">Binding and Directives</h2>
+        </div>
+
+        <div class="row pb-10">
+            <div class="col-lg-6">
+                <div class="card-box pl-20 pt-20 pb-20">
+                    <div style="text-align: center; font-weight:bold;">BINDINGS</div>
+                    <p>
+                        <b>String interpolation :</b> {{ myFirstString }}
+                    </p>
+                    <p>
+                        <b>Function :</b> {{ myFirstFunction() }}
+                    </p>
+                    <p>
+                        <b>Property binding </b><br />
+                        <input class="form-control" [type]="inputType" placeholder="Fetched from variable">
+                        <input class="form-control" [type]="'text'" placeholder="Statically fetched"><br />
+                    </p>
+                    <p>
+                        <b>Event binding </b><br />
+                        <button class="btn btn-primary" (click)="changeInputType()">Click</button>&nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-info" (click)="eventHandle($event)">Check the event in console</button>
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card-box pl-20 pt-20 pb-20">
+                    <div style="text-align: center; font-weight:bold;">DIRECTIVES</div>
+                    <p>
+                        <b>Own Directives :</b> <span myOwnDirective>Arweb</span>
+                    </p>
+                    <div style="text-align: center; font-weight:bold; font-style:italics;">
+                        'IF-ELSE' directives'</div>
+                    <div *ngIf="showDiv; else hideDiv">
+                        Show div
+                    </div>
+                    <ng-template #hideDiv>
+                        <div>
+                            Hide div
+                        </div>
+                    </ng-template>
+                    <button class="btn btn-info" (click)="divToggle()">Toggle</button>
+
+                    <div style="text-align: center; font-weight:bold; font-style:italics;">
+                        'FOR' directives'</div>
+                    <ul>
+                        <li *ngFor="let product of products; let i=index">
+                            {{ i+1 }}. {{ product }}
+                        </li>
+                    </ul>
+                    <div style="text-align: center; font-weight:bold; font-style:italics;">
+                        'CSS STYLE' directives'</div>
+                    <span [ngStyle]="{color:textColor}">This is fetched from TS file</span><br>
+                    <span [style]="{color:'blue'}">This is hardcoded (Property binding)</span><br>
+                    <br>
+                    <div style="text-align: center; font-weight:bold; font-style:italics;">
+                        'CSS CLASS' directives'</div>
+                    <span [ngClass]="className">This is fetched from TS file</span><br>
+                    <span [class]="'word-spacing'">This is hardcoded (Property binding)</span><br>
+                </div>
+            </div>
+        </div>
+        <app-bottom></app-bottom>
+    </div>
+</div>
