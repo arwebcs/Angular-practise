@@ -10,17 +10,22 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
-    data: { title: 'Basic Angular with CRUD : Home' }
+    data: { title: 'Angular full package : Home' }
   },
   {
     path: 'binding-directives',
     loadChildren: () => import('./binding-directives/binding-directives.module').then(m => m.BindingDirectivesModule),
-    data: { title: 'Basic Angular with CRUD : Binding directives' }
+    data: { title: 'Angular full package : Binding directives' }
   },
   {
     path: 'pipes',
     loadChildren: () => import('./pipes/pipes.module').then(m => m.PipesModule),
-    data: { title: 'Basic Angular with CRUD : Pipes' }
+    data: { title: 'Angular full package : Pipes' }
+  },
+  {
+    path: 'two-way-binding',
+    loadChildren: () => import('./two-way-binding/two-way-binding.module').then(m => m.TwoWayBindingModule),
+    data: { title: 'Angular full package : Two way bindings' }
   }
 ];
 
