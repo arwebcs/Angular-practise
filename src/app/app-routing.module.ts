@@ -26,6 +26,11 @@ const routes: Routes = [
     path: 'two-way-binding',
     loadChildren: () => import('./two-way-binding/two-way-binding.module').then(m => m.TwoWayBindingModule),
     data: { title: 'Angular full package : Two way bindings' }
+  },
+  {
+    path: 'component-communication',
+    loadChildren: () => import('./component-communication/component-communication.module').then(m => m.ComponentCommunicationModule),
+    data: { title: 'Angular full package : Component Communication' }
   }
 ];
 
