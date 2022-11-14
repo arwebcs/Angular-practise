@@ -46,6 +46,11 @@ const routes: Routes = [
     path: 'td-forms',
     loadChildren: () => import('./td-forms/td-forms.module').then(m => m.TdFormsModule),
     data: { title: 'Angular full package : Template driven forms' }
+  },
+  {
+    path: 'reactive-forms',
+    loadChildren: () => import('./reactive-form/reactive-form.module').then(m => m.ReactiveFormModule),
+    data: { title: 'Angular full package : Reactive driven forms' }
   }
 ];
 
