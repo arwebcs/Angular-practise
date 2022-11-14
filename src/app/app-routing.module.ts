@@ -31,6 +31,16 @@ const routes: Routes = [
     path: 'component-communication',
     loadChildren: () => import('./component-communication/component-communication.module').then(m => m.ComponentCommunicationModule),
     data: { title: 'Angular full package : Component Communication' }
+  },
+  {
+    path: 'nav-route',
+    loadChildren: () => import('./nav-route/nav-route.module').then(m => m.NavRouteModule),
+    data: { title: 'Angular full package : Navigation' }
+  },
+  {
+    path: 'simple-service',
+    loadChildren: () => import('./simple-service/simple-service.module').then(m => m.SimpleServiceModule),
+    data: { title: 'Angular full package : Simple service' }
   }
 ];
 
