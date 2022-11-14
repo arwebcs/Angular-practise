@@ -51,6 +51,16 @@ const routes: Routes = [
     path: 'reactive-forms',
     loadChildren: () => import('./reactive-form/reactive-form.module').then(m => m.ReactiveFormModule),
     data: { title: 'Angular full package : Reactive driven forms' }
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then(m => m.LoginModule),
+    data: { title: 'Angular full package : Login' }
+  },
+  {
+    path: 'student',
+    loadChildren: () => import('./student/student.module').then(m => m.StudentModule),
+    data: { title: 'Angular full package : Student' }
   }
 ];
 

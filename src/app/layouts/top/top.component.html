@@ -10,9 +10,16 @@
                     </span>
                     <span class="user-name">Ross C. Lopez</span>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                    <a class="dropdown-item"><i class="dw dw-logout"></i> Log Out</a>
+                <div *ngIf="isLoggedIn; else login">
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                        <a class="dropdown-item" (click)="logout()"><i class="dw dw-logout"></i> Log Out</a>
+                    </div>
                 </div>
+                <ng-template #login>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                        <a routerLink="/login" class="dropdown-item"><i class="dw dw-logout"></i> Log in</a>
+                    </div>
+                </ng-template>
             </div>
         </div>
 
