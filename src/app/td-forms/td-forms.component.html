@@ -1,0 +1,64 @@
+<app-top></app-top>
+<app-sidebar></app-sidebar>
+<div class="main-container">
+    <div class="xs-pd-20-10 pd-ltr-20">
+        <div class="title pb-20">
+            <h2 class="h3 mb-0">Template driven forms</h2>
+        </div>
+
+        <div class="row pb-10">
+            <div class="col-lg-12">
+                <div class="card-box pl-20 pt-20 pb-20">
+
+                    <form (ngSubmit)="onSubmit(frm)" #frm="ngForm">
+                        <!-- <form #frm="ngForm"> -->
+                        <div class="form-group mb-4">
+                            <label>Name:</label>
+                            <div class="float-end text-danger">
+                                <span class="float-end">{{ nameErr }}</span>
+                            </div>
+                            <input type="text" class="form-control" name="nm" ngModel required #nm="ngModel" minlength="3" />
+                        </div>
+                        <div class="form-group mb-4">
+                            <label>Email:</label>
+                            <div class="float-end text-danger">
+                                <span class="float-end">{{ emailErr }}</span>
+                            </div>
+                            <input type="email" class="form-control" name="em" ngModel required #em="ngModel" />
+                        </div>
+                        <div class="form-group mb-4">
+                            <label>Age:</label>
+                            <div class="float-end text-danger">
+                                <span class="float-end">{{ ageErr }}</span>
+                            </div>
+                            <input type="number" class="form-control" name="ag" ngModel required max="100" #ag="ngModel" />
+                        </div>
+
+                        <div ngModelGroup="academic">
+                            <div class="form-group mb-4">
+                                <label>Class:</label>
+                                <div class="float-end text-danger">
+                                    <span class="float-end">{{ classErr }}</span>
+                                </div>
+                                <input type="text" required class="form-control" name="class" ngModel />
+                            </div>
+                            <div class="form-group mb-4">
+                                <label>Section:</label>
+                                <div class="float-end text-danger">
+                                    <span class="float-end">{{ secErr }}</span>
+                                </div>
+                                <input type="text" class="form-control" name="sec" required ngModel />
+                            </div>
+                        </div>
+                        <!-- <button class="btn btn-primary" (click)="onSubmit()">Submit</button> -->
+                        <button class="btn btn-primary">Submit</button>
+                        <button class="btn btn-info" (click)="onPopulate()">Set values</button>
+                        <button class="btn btn-danger" (click)="onReset()">Reset</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <app-bottom></app-bottom>
+    </div>
+</div>

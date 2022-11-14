@@ -41,6 +41,11 @@ const routes: Routes = [
     path: 'simple-service',
     loadChildren: () => import('./simple-service/simple-service.module').then(m => m.SimpleServiceModule),
     data: { title: 'Angular full package : Simple service' }
+  },
+  {
+    path: 'td-forms',
+    loadChildren: () => import('./td-forms/td-forms.module').then(m => m.TdFormsModule),
+    data: { title: 'Angular full package : Template driven forms' }
   }
 ];
 
