@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginGuard } from './authorization/guards/login.guard';
 
 const routes: Routes = [
   {
@@ -60,6 +61,7 @@ const routes: Routes = [
   {
     path: 'student',
     loadChildren: () => import('./student/student.module').then(m => m.StudentModule),
+    canActivate: [LoginGuard],
     data: { title: 'Angular full package : Student' }
   }
 ];

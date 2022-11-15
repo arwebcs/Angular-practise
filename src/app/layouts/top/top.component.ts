@@ -13,6 +13,7 @@ export class TopComponent implements OnInit {
   isLoggedIn: boolean = false;
 
   logout() {
+    alert("Logged out");
     this.router.navigate(['']);
     return localStorage.removeItem("userToken");
   }

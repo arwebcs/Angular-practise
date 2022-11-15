@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
   userNameErr: string = '';
   passwordErr: string = '';
   loginErr: string = '';
-  isLoginError: boolean = false;
 
   ngOnInit(): void {
     this.myForm = new FormGroup({
@@ -34,6 +33,7 @@ export class LoginComponent implements OnInit {
       (result) => {
         this.statusCode = result.statusCode;
         if (this.statusCode == 200) {
+          alert("Logged in");
           localStorage.setItem('userToken', result.data.Token);
           this.router.navigate(['student']);
         } else {

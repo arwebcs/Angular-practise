@@ -1,0 +1,111 @@
+<app-top></app-top>
+<app-sidebar></app-sidebar>
+<div class="main-container">
+    <div class="xs-pd-20-10 pd-ltr-20">
+        <div class="title pb-20">
+            <h2 class="h3 mb-0">Student entry</h2>
+        </div>
+
+        <div class="row pb-10">
+            <div class="col-lg-12">
+                <div class="card-box pl-20 pt-20 pb-20">
+                    <span [ngClass]="'card-title text-success'">{{ successMessage }}</span>
+                    <span [ngClass]="'card-title text-danger'">{{ errorMessage }}</span>
+                    <!-- General Form Elements -->
+                    <form [formGroup]="editStudentForm" (ngSubmit)="updateStudent()">
+                        <div class="row mb-3">
+                            <label for="inputName" class="col-sm-2 col-form-label">Name <span class="text-danger">
+                                    *</span></label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" formControlName="regName" />
+                                <b class="text-danger">{{ nameErr }}</b>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputCourseName" class="col-sm-2 col-form-label">Course name <span
+                                    class="text-danger"> *</span></label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" formControlName="courseName" />
+                                <b class="text-danger">{{ courseNameErr }}</b>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputEmail" class="col-sm-2 col-form-label">Email <span class="text-danger">
+                                    *</span></label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" formControlName="email" />
+                                <input type="hidden" class="form-control" formControlName="hemail" />
+                                <b class="text-danger">{{ emailErr }}</b>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputUrl" class="col-sm-2 col-form-label">Website </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" formControlName="website" />
+                                <b class="text-danger">{{ websiteErr }}</b>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputMobile" class="col-sm-2 col-form-label">Mobile <span class="text-danger">
+                                    *</span></label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" formControlName="mobile" />
+                                <input type="hidden" class="form-control" formControlName="hmobile" />
+                                <b class="text-danger">{{ mobileErr }}</b>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputGender" class="col-sm-2 col-form-label">Gender <span class="text-danger">
+                                    *</span></label>
+                            <div class="col-sm-10">
+                                <select class="form-control" formControlName="gender">
+                                    <option *ngFor="let genderLists of genderList" [value]="genderLists.id">
+                                        {{ genderLists.genderDesc }}
+                                    </option>
+                                </select>
+                                <b class="text-danger">{{ genderErr }}</b>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputLanguages" class="col-sm-2 col-form-label">Languages</label>
+                            <div class="col-sm-10">
+                                <select id="languages" class="form-control" multiple formControlName="languages">
+                                    <option *ngFor="let languageLists of languageList" [value]="languageLists.id">
+                                        {{ languageLists.langDesc }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputAbout" class="col-sm-2 col-form-label">About <span class="text-danger">
+                                    *</span></label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" formControlName="about">
+                                    </textarea>
+                                <b class="text-danger">{{ aboutErr }}</b>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputPic" class="col-sm-2 col-form-label">Profile picture <span
+                                    class="text-danger"> </span></label>
+                            <div class="col-sm-10">
+                                <input type="file" class="form-control" (change)="uploadFile($event)" />
+                                <b class="text-danger">{{ profileImageErr }}</b>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label"></label>
+                            <div class="col-sm-10">
+                                <button type="submit" class="btn btn-primary">
+                                    Submit </button>
+                            </div>
+                        </div>
+
+                    </form>
+                    <!-- End General Form Elements -->
+                </div>
+            </div>
+        </div>
+        <app-bottom></app-bottom>
+    </div>
+</div>
