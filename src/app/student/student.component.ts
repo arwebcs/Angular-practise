@@ -13,6 +13,8 @@ export class StudentComponent implements OnInit {
   statusCode: number = 0;
   studentList: any = [];
   errorMessage: string = "";
+  pdfIDCard: string = "";
+  certificate: string = "";
 
   constructor(private studentService: StudentServiceService, private router: Router) { }
 
@@ -50,4 +52,34 @@ export class StudentComponent implements OnInit {
       // }
     );
   }
+
+  /*************************************** PDF EXPORT FROM BASE64 ***************************************/
+  idDownload(event: Event) {
+    this.pdfIDCard = (<HTMLInputElement>event.target).value;
+    this.downloadPdf(this.pdfIDCard, "sample");
+  }
+
+  downloadPdf(base64String: string, fileName: string) {
+    const source = `data:application/pdf;base64,${base64String}`;
+    const link = document.createElement("a");
+    link.href = source;
+    link.download = `${fileName}.pdf`
+    link.click();
+  }
+  /*************************************** PDF EXPORT BASE64 ***************************************/
+
+  /*************************************** IMAGE EXPORT BASE64 ***************************************/
+  downloadImage(base64String: string, imageType: string, fileName: string) {
+    const source = `data:${imageType};base64,${base64String}`;
+    const link = document.createElement("a");
+    link.href = source;
+    link.download = `${fileName}.jpg`
+    link.click();
+  }
+
+  certificateDownload(event: Event, imageType: string) {
+    this.certificate = (<HTMLInputElement>event.target).value;
+    this.downloadImage(this.certificate, imageType, "sample");
+  }
+  /*************************************** IMAGE EXPORT BASE64 ***************************************/
 }

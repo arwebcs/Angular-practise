@@ -18,25 +18,32 @@
                                 <tr>
                                     <th scope="col">Name</th>
                                     <th scope="col">Course name</th>
-                                    <th scope="col">Languages</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">About</th>
-                                    <th scope="col">Options</th>
+                                    <th scope="col">Actions</th>
+                                    <th scope="col">Download files</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let studentLists of studentList">
                                     <td>{{ studentLists.full_name }}</td>
                                     <td>{{ studentLists.course_name }}</td>
-                                    <td>{{ studentLists.languages }}</td>
                                     <td>{{ studentLists.email }}</td>
                                     <td>{{ studentLists.about }}</td>
                                     <td>
-                                        <a [routerLink]="['/student/edit', studentLists.user_id]" [ngClass]="'btn btn-info'">
+                                        <a class="btn btn-warning btn-sm" [routerLink]="['/student/edit', studentLists.user_id]">
                                             EDIT
-                                        </a>
-                                        <button [ngClass]="'btn btn-danger'" (click)="deleteStudent(studentLists.user_id)">
+                                        </a> &nbsp;&nbsp;
+                                        <button class="btn btn-danger btn-sm" (click)="deleteStudent(studentLists.user_id)">
                                             DELETE
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-info btn-sm" [value]="studentLists.id_card" (click)="idDownload($event)">
+                                            ID
+                                        </button>&nbsp;&nbsp;
+                                        <button class="btn btn-primary btn-sm" [value]="studentLists.certificate_image" (click)="certificateDownload($event, studentLists.certificate_image_type)">
+                                            CERTIFICATE
                                         </button>
                                     </td>
                                 </tr>
