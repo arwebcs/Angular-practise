@@ -31,18 +31,22 @@
                                     <td>{{ studentLists.email }}</td>
                                     <td>{{ studentLists.about }}</td>
                                     <td>
-                                        <a class="btn btn-warning btn-sm" [routerLink]="['/student/edit', studentLists.user_id]">
+                                        <a class="btn btn-warning btn-sm"
+                                            [routerLink]="['/student/edit', studentLists.user_id]">
                                             EDIT
                                         </a> &nbsp;&nbsp;
-                                        <button class="btn btn-danger btn-sm" (click)="deleteStudent(studentLists.user_id)">
+                                        <button class="btn btn-danger btn-sm"
+                                            (click)="deleteStudent(studentLists.user_id)">
                                             DELETE
                                         </button>
                                     </td>
                                     <td>
-                                        <button class="btn btn-info btn-sm" [value]="studentLists.id_card" (click)="idDownload($event)">
+                                        <button class="btn btn-info btn-sm" [value]="studentLists.id_card"
+                                            (click)="idDownload($event)">
                                             ID
                                         </button>&nbsp;&nbsp;
-                                        <button class="btn btn-primary btn-sm" [value]="studentLists.certificate_image" (click)="certificateDownload($event, studentLists.certificate_image_type)">
+                                        <button class="btn btn-primary btn-sm" [value]="studentLists.certificate_image"
+                                            (click)="certificateDownload($event, studentLists.certificate_image_type)">
                                             CERTIFICATE
                                         </button>
                                     </td>
