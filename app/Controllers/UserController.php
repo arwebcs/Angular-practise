@@ -22,7 +22,7 @@ class UserController
             if ($db->count() > 0) {
                 $response = new Response(["statusCode" => 200, "message" => "Records found", "records" => $db->count(), "total_records" => $count, "details" => $db->get()], 200);
             } else if ($db->count() == 0) {
-                $response = new Response(["statusCode" => 406, "message" => "No records found"], 406);
+                $response = new Response(["statusCode" => 205, "message" => "No records found"], 205);
             } else {
                 $response = new Response(["statusCode" => 500, "message" => "Server error"], 500);
             }
@@ -31,7 +31,7 @@ class UserController
             if ($db->count() > 0) {
                 $response = new Response(["statusCode" => 200, "message" => "Records found", "details" => $db->single()], 200);
             } else if ($db->count() == 0) {
-                $response = new Response(["statusCode" => 406, "message" => "No records found"], 406);
+                $response = new Response(["statusCode" => 205, "message" => "No records found"], 205);
             } else {
                 $response = new Response(["statusCode" => 500, "message" => "Server error"], 500);
             }
@@ -155,7 +155,7 @@ class UserController
                     $response = new Response(["statusCode" => 400, "message" => "Recorrect errors", "errors" => $validator->getErrors()], 400);
                 }
             } else if ($userData->count() == 0) {
-                $response = new Response(["statusCode" => 406, "message" => "No records found to update"], 406);
+                $response = new Response(["statusCode" => 205, "message" => "No records found to update"], 205);
             } else {
                 $response = new Response(["statusCode" => 500, "message" => "Server error"], 500);
             }
@@ -176,7 +176,7 @@ class UserController
                 $response = new Response(["statusCode" => 500, "message" => "Server error"], 500);
             }
         } else if ($count == 0) {
-            $response = new Response(["statusCode" => 406, "message" => "No records found to delete"], 406);
+            $response = new Response(["statusCode" => 205, "message" => "No records found to delete"], 205);
         } else {
             $response = new Response(["statusCode" => 500, "message" => "Server error"], 500);
         }
@@ -205,7 +205,7 @@ class UserController
             if ($db->count() > 0) {
                 $response = new Response(["statusCode" => 200, "message" => "Successfully logged in", "data" => ["name" => "Admin", "username" => $req->input("username")]], 200);
             } else if ($db->count() == 0) {
-                $response = new Response(["statusCode" => 406, "message" => "Login failed", "error" => "Wrong username/password"], 406);
+                $response = new Response(["statusCode" => 205, "message" => "Login failed", "error" => "Wrong username/password"], 205);
             } else {
                 $response = new Response(["statusCode" => 500, "message" => "Server error"], 500);
             }
