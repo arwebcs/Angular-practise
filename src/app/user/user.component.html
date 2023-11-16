@@ -1,0 +1,106 @@
+<!--  Body Wrapper -->
+<div
+  class="page-wrapper"
+  id="main-wrapper"
+  data-layout="vertical"
+  data-navbarbg="skin6"
+  data-sidebartype="full"
+  data-sidebar-position="fixed"
+  data-header-position="fixed"
+>
+  <!-- Sidebar Start -->
+  <aside class="left-sidebar">
+    <app-sidemenu></app-sidemenu>
+  </aside>
+  <!--  Sidebar End -->
+  <!--  Main wrapper -->
+  <div class="body-wrapper">
+    <!--  Header Start -->
+    <app-top></app-top>
+    <div class="container-fluid">
+      <!--  Row 1 -->
+      <div class="row">
+        <div class="col-lg-12 d-flex align-items-strech">
+          <div class="card w-100">
+            <div class="card-body">
+              <h5 class="card-title fw-semibold">View Users</h5>
+
+              <div
+                class="d-sm-flex d-block align-items-center justify-content-between mb-9"
+              ></div>
+              <table>
+                <tr>
+                  <td>
+                    <select
+                      class="form-control"
+                      style="width: 60px"
+                      [(ngModel)]="record"
+                      (change)="displayList($event)"
+                    >
+                      <option *ngFor="let values of optionNo" [value]="values">
+                        {{ values }}
+                      </option>
+                    </select>
+                  </td>
+
+                  <td style="padding-left: 20px">
+                    <input
+                      type="text"
+                      placeholder="Search by name or email"
+                      style="width: auto"
+                      [(ngModel)]="filterText"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+              </table>
+              <div class="row" style="margin-top: 15px">
+                <div class="col-lg-12">
+                  <div class="row">
+                    <div
+                      class="col-lg-4 col-md-6 col-sm-12 col-xs-12"
+                      *ngFor="let user of users | search : filterText"
+                    >
+                      <div class="card">
+                        <div class="card-body">
+                          <img
+                            [src]="user.Image"
+                            style="margin-bottom: 20px; width: fit-content"
+                          />
+                          <h4>{{ user.Name }}</h4>
+                          <h5>{{ user.Gender }}</h5>
+                          <h6>{{ user.Email }}</h6>
+                        </div>
+                        <button
+                          (click)="deleteUser(user.UserID)"
+                          class="btn btn-danger m-1"
+                        >
+                          Delete
+                        </button>
+                        <a
+                          [routerLink]="['../edit', user.UserID]"
+                          class="btn btn-primary m-1"
+                          >Edit</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                style="margin-right: 10px"
+                class="btn btn-primary"
+                *ngFor="let buttons of button"
+                (click)="displayPageList($event)"
+                [value]="buttons.btn_id"
+              >
+                {{ buttons.btn_id }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <app-bottom></app-bottom>
+    </div>
+  </div>
+</div>

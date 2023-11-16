@@ -1,0 +1,110 @@
+<!--  Body Wrapper -->
+<div
+  class="page-wrapper"
+  id="main-wrapper"
+  data-layout="vertical"
+  data-navbarbg="skin6"
+  data-sidebartype="full"
+  data-sidebar-position="fixed"
+  data-header-position="fixed"
+>
+  <!-- Sidebar Start -->
+  <aside class="left-sidebar">
+    <app-sidemenu></app-sidemenu>
+  </aside>
+  <!--  Sidebar End -->
+  <!--  Main wrapper -->
+  <div class="body-wrapper">
+    <!--  Header Start -->
+    <app-top></app-top>
+    <div class="container-fluid">
+      <!--  Row 1 -->
+      <div class="row">
+        <div class="col-lg-12 d-flex align-items-strech">
+          <div class="card w-100">
+            <div class="card-body">
+              <h5 class="card-title fw-semibold">Add User</h5>
+              <div
+                class="d-sm-flex d-block align-items-center justify-content-between mb-9"
+              ></div>
+              <form [formGroup]="addUser">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label"
+                    >Name <span class="field_error"> *</span></label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Enter your name"
+                    formControlName="full_name"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                  />
+                  <div class="form-text field_error">
+                    {{ nameErr }}
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label"
+                    >Gender <span class="field_error"> *</span></label
+                  >
+                  <select
+                    formControlName="gender"
+                    tabindex="5"
+                    class="form-control"
+                  >
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+                  <div class="form-text field_error">
+                    {{ genderErr }}
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label"
+                    >Email address</label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="exampleInputEmail1"
+                    placeholder="Enter your email"
+                    aria-describedby="emailHelp"
+                    formControlName="email_id"
+                  />
+                  <div class="form-text field_error">
+                    {{ emailErr }}
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label"
+                    >Profile picture <span class="field_error"> *</span></label
+                  >
+                  <input
+                    type="file"
+                    tabindex="9"
+                    class="form-control"
+                    (change)="uploadFiles($event)"
+                  />
+                  <div class="form-text field_error">
+                    {{ profilepicErr }}
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary" (click)="save()">
+                  Submit
+                </button>
+                <span style="font-weight: bold" [style]="color">
+                  {{ message }}
+                </span>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12 d-flex align-items-strech"></div>
+      </div>
+
+      <app-bottom></app-bottom>
+    </div>
+  </div>
+</div>
