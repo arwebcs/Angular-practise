@@ -32,18 +32,24 @@ export class LoginComponent {
     this.loginService.login(this.myForm.value).subscribe(
       (result) => {
         this.isLoading = false;
-        localStorage.setItem('username', result.data.username);
-        localStorage.setItem('name', result.data.name);
-        this.router.navigate(['home']);
+        this.statusCode = result.statusCode;
+        if (this.statusCode == 200) {
+          localStorage.setItem('username', result.data.username);
+          localStorage.setItem('name', result.data.name);
+          this.router.navigate(['home']);
+        } else {
+          console.log(result);
+          this.userNameErr = result.errors?.username;
+          this.passwordErr = result.errors?.password;
+          this.loginErr = result.message;
+        }
       },
       (err: HttpErrorResponse): void => {
-        console.log(err);
         this.isLoading = false;
         this.statusCode = err.error.statusCode;
         if (this.statusCode == 500) {
           this.loginErr = err.error.message;
         } else {
-          console.log(err.error);
           this.userNameErr = err.error.errors?.username;
           this.passwordErr = err.error.errors?.password;
           this.loginErr = err.error.error;
